@@ -1,7 +1,8 @@
 var path = require("path");
 const express = require("express");
 const bodyParser = require("body-parser");
-
+const dotenv = require('dotenv');
+dotenv.config();
 const app = express();
 
 const cors = require("cors");
@@ -14,7 +15,7 @@ app.listen(8000, function () {
 });
 
 app.get("/", function (req, res) {
-  res.sendFile("dist/index.html");
+  res.sendFile('/dist/index.html', { root: '.' });
 });
 
 // Variables for url and api key
