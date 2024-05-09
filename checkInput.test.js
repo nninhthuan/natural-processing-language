@@ -17,7 +17,7 @@ test('get call api from local and external', async () => {
   };
   global.document = mockDocument;
 
-  const formdata = new FormData();
+  const formdata = [];
   const result = await submitForm(url, typeLanguage, formdata, inputTxt);
   expect(result).toBe(true);
 });

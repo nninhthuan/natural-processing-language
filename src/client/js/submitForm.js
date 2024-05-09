@@ -4,8 +4,6 @@ async function submitForm(url, typeLanguage, formdata, inputTxt) {
   //Validate input
   const validInp = checkInputTxt(inputTxt.value);
 
-  //Add body to post method
-  formdata.append("txt", validInp);
 
   async function fetchData() {
     try {
@@ -19,21 +17,20 @@ async function submitForm(url, typeLanguage, formdata, inputTxt) {
       console.error(error);
     }
   }
-  await fetch(url, {
+  await fetch(`${url}?key=${formdata[0]}&txt=${validInp}`, {
     method: "POST",
     redirect: "follow",
-    body: formdata,
   })
     .then((res) => res.json())
     .then((data) => {
-      if (data.language_list[0].name === "und") {
+      if (data.language_list && data.language_list[0] && data.language_list[0].name === "und") {
         const typeErr = "Sorry, I can not find your language";
         typeLanguage.style.color = "red";
         typeLanguage.innerHTML = typeErr;
+      } else if (data.language_list && data.language_list[0]) {
+        const formText = `The type of language you have just type is: ${data.language_list[0].name}`;
+        typeLanguage.innerHTML = formText;
       }
-
-      const formText = `The type of language you have just type is: ${data.language_list[0].name}`;
-      typeLanguage.innerHTML = formText;
     })
     .catch((error) => console.log("error", error));
   return true;

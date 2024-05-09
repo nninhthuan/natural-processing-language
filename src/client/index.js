@@ -3,11 +3,13 @@ import "./styles/footer.scss";
 import "./styles/form.scss";
 import "./styles/header.scss";
 import "./styles/remember-me.scss";
+import "./assets/logo.png";
+
 import { submitForm } from "./js/submitForm";
 
 const url = "https://api.meaningcloud.com/lang-4.0/identification";
 const typeLanguage = document.getElementById("type-language");
-const formdata = new FormData();
+const formdata = [];
 const inputTxt = document.getElementById("user-name");
 
 const localServer = "http://127.0.0.1:8000";
@@ -16,7 +18,7 @@ const localServer = "http://127.0.0.1:8000";
 fetch(`${localServer}/api-key`, { method: "GET" })
   .then((res) => res.text())
   .then((apiKey) => {
-    formdata.append("key", apiKey);
+    formdata.push(apiKey);
   });
 
 inputTxt.addEventListener("keyup", () => (typeLanguage.innerHTML = ""));

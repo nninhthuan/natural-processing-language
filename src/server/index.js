@@ -9,7 +9,7 @@ const cors = require("cors");
 
 app.use(cors());
 app.use(bodyParser.json());
-
+app.use(express.static('dist'));
 app.listen(8000, function () {
   console.log("Example app listening on port 8000!");
 });

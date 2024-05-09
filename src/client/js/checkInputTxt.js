@@ -4,7 +4,7 @@ function checkInputTxt(inputText) {
     return false;
   }
 
-  return true;
+  return inputText;
 }
 
 export { checkInputTxt };
