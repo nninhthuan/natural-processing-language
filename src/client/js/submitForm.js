@@ -23,7 +23,7 @@ async function submitForm(url, typeLanguage, formdata, inputTxt) {
   })
     .then((res) => res.json())
     .then((data) => {
-      if (data.language_list && data.language_list[0] && data.language_list[0].name === "und") {
+      if (data.language_list && data.language_list[0] && data.language_list[0].language === "und") {
         const typeErr = "Sorry, I can not find your language";
         typeLanguage.style.color = "red";
         typeLanguage.innerHTML = typeErr;

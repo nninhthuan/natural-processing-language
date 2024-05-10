@@ -14,7 +14,7 @@ After completing instanciate by installing node-modules. You must to perform bot
 1. Run client side. I would recommend to use visual studio with go live extension in order to run UI in localhost:5500
 2. Run server side, open intergrated terminal in local visual studio terminal and type ```npm run start```
 
-## Apply any changes
+# Apply any changes
 
 If you want to apply any changes when you have significant idea for this project. After you finish your task changes. You must execute to run the below cmd:
 
@@ -22,3 +22,7 @@ If you want to apply any changes when you have significant idea for this project
 2. ```npm run build-prod``` to scan whole application and create a new build for application.
 
 And don't forget, create pull request to apply new changes for this repos.
+
+# For Testing
+- File with extensions .test.js or .spec.js do not bundle with other resource. You run
+```npm run test``` to test your function
